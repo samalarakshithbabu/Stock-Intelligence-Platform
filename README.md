@@ -1,13 +1,23 @@
-# 📈 Stock Intelligence Platform
+# Stock Intelligence Platform
 
 A comprehensive AI-powered stock intelligence and forecasting platform built with Python, FastAPI, SQLAlchemy, and React.
 
-![Stock Intelligence Platform](https://img.shields.io/badge/Stock-Intelligence-blue)
-![Python](https://img.shields.io/badge/Python-3.11-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-green)
-![React](https://img.shields.io/badge/React-18.2-blue)
+---
 
-## 🌟 Features
+## Problem Statement
+
+Individual investors and analysts need robust tools for stock forecasting, backtesting strategies, and technical analysis without look-ahead bias. Most platforms either lack rigorous validation methodology or require expensive subscriptions.
+
+## Objectives
+
+- Implement multiple forecasting models with strict time-series validation
+- Provide automated data pipeline from Yahoo Finance to SQL database
+- Engineer technical indicators without look-ahead bias
+- Build backtesting engine with realistic transaction costs
+- Create SQL analytics dashboard for custom queries
+- Deploy as full-stack application with Docker
+
+## Key Features
 
 ### 1. Multi-Model Forecasting Engine
 - **Naive Baseline** - Essential benchmark (tomorrow = today)
@@ -59,7 +69,7 @@ A comprehensive AI-powered stock intelligence and forecasting platform built wit
 - Custom SQL query execution
 - Window functions and ranking
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 Stock-Intelligence-Platform/
@@ -85,7 +95,7 @@ Stock-Intelligence-Platform/
 └── README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.11+
@@ -94,49 +104,41 @@ Stock-Intelligence-Platform/
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Stock-Intelligence-Platform
-   ```
+```bash
+# 1. Clone the repository
+git clone https://github.com/samalarakshithbabu/stock-intelligence-platform.git
+cd Stock-Intelligence-Platform
 
-2. **Set up the backend**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+# 2. Set up the backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-3. **Set up the frontend**
-   ```bash
-   cd frontend
-   npm install
-   ```
+# 3. Set up the frontend
+cd frontend
+npm install
+```
 
 ### Running the Application
 
-1. **Start the backend**
-   ```bash
-   cd backend
-   python main.py
-   ```
-   API will be available at `http://localhost:8000`
-   Documentation at `http://localhost:8000/docs`
+```bash
+# 1. Start the backend
+cd backend
+python main.py
+# API at http://localhost:8000, Docs at http://localhost:8000/docs
 
-2. **Start the frontend** (in a new terminal)
-   ```bash
-   cd frontend
-   npm run dev
-   ```
-   Application will be available at `http://localhost:3000`
+# 2. Start the frontend (new terminal)
+cd frontend
+npm run dev
+# App at http://localhost:3000
+```
 
 ### Using Docker
-
 ```bash
 docker-compose up -d
 ```
 
-## 📊 API Endpoints
+## API Endpoints
 
 ### Stocks
 - `GET /api/stocks` - List all stocks
@@ -163,10 +165,10 @@ docker-compose up -d
 - `GET /api/pipeline/history` - Get execution history
 - `GET /api/pipeline/summary` - Get pipeline statistics
 
-## 🔬 Model Evaluation Methodology
+## Model Evaluation Methodology
 
 ### Preventing Data Leakage
-1. **Chronological Splits**: Data is split without shuffling
+1. **Chronological Splits**: Data split without shuffling
 2. **Scaler Isolation**: Scalers fitted only on training data
 3. **Walk-Forward**: Rolling window validation
 4. **Technical Indicators**: Shifted by 1 to prevent look-ahead
@@ -177,59 +179,32 @@ docker-compose up -d
 - **MAPE** - Mean Absolute Percentage Error
 - **sMAPE** - Symmetric MAPE
 - **R²** - Coefficient of Determination
-- **Directional Accuracy** - % of correct price direction predictions
+- **Directional Accuracy** - % correct price direction predictions
 
 ### Naive Baseline
-Every model is compared against the naive baseline:
-```
-Tomorrow's predicted price = Today's actual price
-```
+Every model compared against: `Tomorrow's predicted price = Today's actual price`
+If sophisticated model can't beat this, it's not adding value!
 
-If your sophisticated model can't beat this, it's not adding value!
+## Backtesting
 
-## 🧪 Testing
-
-```bash
-# Backend tests
-cd backend
-pytest tests/ -v
-
-# Frontend tests
-cd frontend
-npm test
-```
-
-## 📈 Backtesting
-
-Strategies available:
+### Strategies Available
 1. **SMA Crossover**: Buy when short SMA crosses above long SMA
 2. **RSI Strategy**: Buy oversold, sell overbought
 3. **MACD Strategy**: Trade MACD crossovers
 4. **Buy & Hold**: Simple benchmark
 
-Parameters:
+### Parameters
 - Initial capital
 - Transaction costs
 - Slippage assumptions
 
-Metrics:
+### Metrics
 - Total return
 - Sharpe ratio
 - Max drawdown
 - Win rate
 
-## ⚠️ Disclaimer
-
-This platform is for **educational and research purposes only**. 
-
-Stock predictions and backtesting results are:
-- Not guaranteed future performance
-- Based on historical data which may not predict future trends
-- Affected by factors not captured in models (market sentiment, news, etc.)
-
-**Never make investment decisions based solely on this platform.**
-
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Backend
 - **FastAPI** - Modern web framework
@@ -259,21 +234,30 @@ Stock predictions and backtesting results are:
 - **Docker** - Containerization
 - **Docker Compose** - Multi-container
 
-## 📝 License
+## Disclaimer
 
-MIT License
+This platform is for **educational and research purposes only**.
 
-## 🤝 Contributing
+Stock predictions and backtesting results are:
+- Not guaranteed future performance
+- Based on historical data which may not predict future trends
+- Affected by factors not captured in models (market sentiment, news, etc.)
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📧 Contact
-
-For questions or support, please open an issue.
+**Never make investment decisions based solely on this platform.**
 
 ---
 
-Built with ❤️ for the financial technology community
+## Author
+
+**SAMALA RAKSHITH BABU**  
+
+**Contact:**  
+- Email: samalarakshithbabu7@gmail.com  
+- LinkedIn: https://www.linkedin.com/in/samala-rakshith-babu/  
+- GitHub: https://github.com/samalarakshithbabu  
+
+---
+
+## License
+
+MIT License
